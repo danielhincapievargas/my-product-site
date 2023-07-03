@@ -1,0 +1,101 @@
+@import '../../styles/abstract/variables.scss';
+
+article {
+  margin: 0 auto;
+  max-width: 900px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    @media (min-width: 769px){
+      margin-top: 24px;
+    }
+      h2 {
+        font-size: 24px;
+        @media (min-width: 769px){
+          font-size: 32px;
+        }
+      }
+      button {
+        padding: 8px 12px 8px 12px;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: $primary-color;
+        color: $white;
+        transition: background-color 0.3s ease;
+        &:hover {
+        background-color: $light-blue;
+      }
+        @media (min-width: 769px){
+          padding: 10px 14px 10px 14px;
+          font-size: 20px;
+        }
+      }
+  }
+
+  .table {
+    border: solid 2px $very-light-gray;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    align-self: center;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 5px;
+    box-shadow: 6px 10px 6px -10px rgba(117,124,136,1);
+
+    .table-header {
+      height: 28px;
+      background-color: $very-light-gray;
+      @media (min-width: 769px){
+        height: 34px;
+      }
+      .table-header__name {
+        padding-left: 20px;
+        padding-right: 0px;
+        text-align: left;
+      }
+      th {
+        padding: 0px 10px 0px 10px;
+        font-size: 9px;
+        font-weight: bold;
+        text-align: center;
+        color: $dark-gray;
+        @media (min-width: 769px){
+          font-size: 14px;
+        }
+      }
+      .edit {
+        color: $very-light-gray;
+      }
+    }
+    .table-body {
+      td {
+        border-top: 2px solid $very-light-gray;
+        padding: 10px 8px 10px 8px;
+        text-align: center;
+        font-size: 10px;
+        color: $gray;
+        @media (min-width: 769px){
+          font-size: 14px;
+        }
+      }
+      .table-body__name {
+        padding-left: 20px;
+        text-align: left;
+        font-weight: bold;
+      }
+      .table-body__edit, .table-body__delete {
+        cursor: pointer;
+        font-weight: bold;
+        color: $primary-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@import '../../styles/abstract/variables.scss';
+
+.add-card {
+  display: none;
+  margin: 0 auto;
+  width: 90%;
+  padding: 0 15px;
+  @media (min-width: 769px) {
+    width: 600px;
+    margin-top: 20px;
+  }
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    @media (min-width: 769px) {
+      font-size: 32px;
+    }
+  }
+  .add-form {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: $very-light-gray;
+    border-radius: 5px;
+    box-shadow: 6px 10px 6px -10px rgba(117,124,136,1);
+    label {
+      padding-top: 18px;
+      font-size: 9px;
+      font-weight: bold;
+      color: $dark-gray;
+      @media (min-width: 769px){
+        font-size: 14px;
+        padding-top: 28px;
+      }
+    }
+    input, select {
+      border: solid 1px $light-gray;
+      background-color: $white;
+      color: $gray;
+      border-radius: 5px;
+      padding: 5px 0 5px 0;
+      padding-left: 10px;
+      font-size: 14px;
+      &::placeholder {
+        font-style: italic;
+        color: $light-gray;
+      }
+    }
+    button {
+      align-self: self-end;
+      margin-top: 12px;
+      width: 28px;
+      padding: 8px 12px 8px 12px;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      background-color: $primary-color;
+      color: $white;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: $light-blue;
+      }
+      @media (min-width: 769px){
+        padding: 10px 20px 10px 14px;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+  }
+  }
+}
