@@ -1,9 +1,9 @@
 import './AddProductCard.scss';
 
-const AddProductCard = () => {
+const AddProductCard = ({ clickAdd }) => {
   return (
     <>
-      <div className='add-card'>
+      <div className={clickAdd ? 'add-card' : 'hiden'}>
         <h2>Add Product</h2>
         <form className='add-form'>
 

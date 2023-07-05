@@ -1,9 +1,7 @@
 //import { useState } from 'react'
-import './App.scss'
-import Header from './components/Header'
-import ProductList from './components/ProductList'
-import AddProduct from './components/AddProduct'
-import EditProduct from './components/EditProduct'
+import './App.scss';
+import Main from './components/Main';
+import Header from './components/Header';
 
 const App = () => {
   //const [count, setCount] = useState(0)
@@ -12,9 +10,7 @@ const App = () => {
     <>
       <Header/>
       <div className='container'>
-        <AddProduct />
-        <EditProduct />
-        <ProductList />
+        <Main />
       </div>
     </>
   )
