@@ -1,9 +1,9 @@
 import './Product.scss';
+import ProductList from '../ProductList';
 import { dataMain } from '../Main/Data';
 
 const Product = ({ handleClickAdd, handleClickEdit }) => {
   return (
-    <>
       <article>
 
         <div className='title'>
@@ -13,31 +13,35 @@ const Product = ({ handleClickAdd, handleClickEdit }) => {
 
         <table className='table'>
 
-          <tr className='table-header'>
-            <th className='table-header__name'>PRODUCT NAME</th>
-            <th>COLOR</th>
-            <th>CATEGORY</th>
-            <th>PRICE</th>
-            <th className='edit'>EDIT</th>
-          </tr>
+          <thead>
+            <tr className='table-header'>
+              <th className='table-header__name'>PRODUCT NAME</th>
+              <th>COLOR</th>
+              <th>CATEGORY</th>
+              <th>PRICE</th>
+              <th className='edit'>EDIT</th>
+            </tr>
+          </thead>
 
-          {dataMain.map((item) => {
-            return (
-              <>
-              <tr key={item.id} id={item.id} className='table-body'>
-                <td className='table-body__name'>{item.name}</td>
-                <td>{item.color}</td>
-                <td>{item.category}</td>
-                <td>{item.price}</td>
-                <td><span id={item.id} onClick={handleClickEdit} className='table-body__edit'>Edit </span><span>|</span><span className='table-body__delete'> Delete</span></td>
-              </tr> 
-              </>
-            )
-          })}
+          <tbody>
+            {dataMain.map((product) => {
+              return (
+                <ProductList
+                key={product.id} 
+                id={product.id}
+                name={product.name}
+                color={product.color}
+                category={product.category}
+                price={product.price}
+                handleClickEdit={handleClickEdit}
+                />
+              )
+            })}
+          </tbody>
+          
         </table>
 
       </article>
-    </>
   )
 }
 
