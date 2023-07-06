@@ -1,8 +1,41 @@
 import './Product.scss';
 import ProductList from '../ProductList';
-import { dataMain } from '../Main/Data';
 
-const Product = ({ handleClickAdd, handleClickEdit }) => {
+
+const Product = ({ 
+  products = [],
+  handleClickAdd, 
+  clickAdd, 
+  setClickEdit, 
+  setClickAdd, 
+  clickEdit,
+  setSingleProduct
+}) => {
+
+  const handleClickEdit = (product) => {
+      setClickEdit(product.id);
+      //console.log(clickEdit);
+      setSingleProduct(product);
+      
+
+    /* if(clickEdit === product.id) {
+      setClickEdit(product.id)
+      setSingleProduct(product)
+    } else {
+      setClickEdit(null)
+      setSingleProduct({
+        name: '',
+        color: '',
+        categoty: '',
+        price: ''
+      })
+    } */
+
+
+    //clickAdd ? setClickAdd(!clickAdd) : undefined;
+  }
+  //console.log(clickEdit);
+ 
   return (
       <article>
 
@@ -24,16 +57,18 @@ const Product = ({ handleClickAdd, handleClickEdit }) => {
           </thead>
 
           <tbody>
-            {dataMain.map((product) => {
+            {products.map((product) => {
               return (
                 <ProductList
                 key={product.id} 
                 id={product.id}
+                product={product}
                 name={product.name}
                 color={product.color}
                 category={product.category}
                 price={product.price}
                 handleClickEdit={handleClickEdit}
+                isSelected={clickEdit === product.id ? true : false}
                 />
               )
             })}

@@ -1,6 +1,15 @@
 import './EditProductCard.scss';
 
-const EditProductCard = ({ clickEdit, item }) => {
+const EditProductCard = ({ clickEdit, singleProduct, setSingleProduct }) => {
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setSingleProduct({ 
+      ...singleProduct, // spread operator
+      [name]: value 
+    });
+  }
+
   return (
     <>
     <div className={clickEdit ? 'edit-card' : 'hiden'}>
@@ -8,13 +17,13 @@ const EditProductCard = ({ clickEdit, item }) => {
         <form className='edit-form'>
 
           <label htmlFor="product-name">PRODUCT NAME</label>
-          <input  name='product-name' id='product-name' type="text"/>
+          <input onChange={handleChange} value={singleProduct.name}  name='product-name' id='product-name' type="text"/>
 
           <label htmlFor="color">COLOR</label>
-          <input  name='color' id='color' type="text"/>
+          <input onChange={handleChange} value={singleProduct.color} name='color' id='color' type="text"/>
 
           <label htmlFor="category">CATEGORY</label>
-          <select  name="category" id="category">
+          <select onChange={handleChange} value={singleProduct.category} name="category" id="category">
             <option value="Home">Home</option>
             <option value="Clothing">Clothing</option>
             <option value="Baby">Baby</option>
@@ -23,7 +32,7 @@ const EditProductCard = ({ clickEdit, item }) => {
           </select>
           
           <label htmlFor="price">PRICE</label>
-          <input  name="price" id="price" type="number"/>
+          <input onChange={handleChange} value={singleProduct.price}  name="price" id="price" type="text"/> {/* cómo se pone como número? */}
 
           <div className='edit-buttons'>
             <button className='edit-cancel'>Cancel</button>

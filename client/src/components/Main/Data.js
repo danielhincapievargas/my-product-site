@@ -1,4 +1,4 @@
-export const dataMain = [
+export const products = [
   {
     id: '1',
     name: 'Recycled Steal Sausages',
