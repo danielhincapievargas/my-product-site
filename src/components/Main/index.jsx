@@ -2,12 +2,12 @@ import AddProductCard from '../AddProductCard';
 import EditProductCard from '../EditProductCard';
 import Product from '../Product';
 import { useState } from 'react';
-import { products } from '../Main/Data';
+import { products as ProductList } from '../Main/Data';
 
 
 const Main = () => {
 
-
+  const[products, setProducts] = useState(ProductList);
   const[clickAdd, setClickAdd] = useState(false);
   const[clickEdit, setClickEdit] = useState(null);
   const[singleProduct, setSingleProduct] = useState({
@@ -25,6 +25,10 @@ const Main = () => {
     clickEdit ? setClickEdit(!setClickEdit) : undefined;
   } */
 
+  const handleAddProduct = (newProduct) => {
+    setProducts([...products, newProduct]);
+  }
+
 
 
   return (
@@ -39,7 +43,10 @@ const Main = () => {
         setSingleProduct={setSingleProduct}
       />
       <AddProductCard 
+      onAddProduct={handleAddProduct}
       clickAdd={clickAdd}
+      singleProduct={singleProduct}
+      setSingleProduct={setSingleProduct}
       />
       <EditProductCard 
       clickEdit={clickEdit}

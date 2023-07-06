@@ -4,8 +4,6 @@ import ProductList from '../ProductList';
 
 const Product = ({ 
   products = [],
-  handleClickAdd, 
-  clickAdd, 
   setClickEdit, 
   setClickAdd, 
   clickEdit,
@@ -16,6 +14,7 @@ const Product = ({
       setClickEdit(product.id);
       //console.log(clickEdit);
       setSingleProduct(product);
+      setClickAdd(false)
       
 
     /* if(clickEdit === product.id) {
@@ -35,7 +34,12 @@ const Product = ({
     //clickAdd ? setClickAdd(!clickAdd) : undefined;
   }
   //console.log(clickEdit);
- 
+
+  const handleClickAdd = () => {
+    setClickAdd(true)
+    setClickEdit(null)
+  }
+  
   return (
       <article>
 
