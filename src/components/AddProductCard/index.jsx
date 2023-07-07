@@ -2,9 +2,11 @@ import './AddProductCard.scss';
 
 const AddProductCard = ({
   clickAdd,
+  setClickAdd,
   onAddProduct,
   singleProduct,
-  setSingleProduct
+  setSingleProduct,
+  setHideTable
 }) => {
 
   const handleChange = (event) => {
@@ -17,6 +19,8 @@ const AddProductCard = ({
 
   const handleSubmit = (event) => {
     event.preventDefault()
+
+    setHideTable(false)
     
     const newProduct = {
       ...singleProduct,
@@ -30,6 +34,10 @@ const AddProductCard = ({
       category: '',
       price: '',
     })
+  }
+
+  const handleClickCancel = () => {
+    setClickAdd(false)
   }
 
   return (
@@ -57,7 +65,7 @@ const AddProductCard = ({
           <label htmlFor="price">PRICE</label>
           <input onChange={handleChange} placeholder='$999,99' name="price" id="price" type="text" required value={singleProduct.price}/>
           <div className="add-buttons">
-            <button className='edit-cancel'>Cancel</button>
+            <button className='add-cancel' onClick={handleClickCancel}>Cancel</button>
             <button type='submit' className='add-botton'>Add</button>
           </div>
         </form>

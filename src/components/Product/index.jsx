@@ -7,7 +7,10 @@ const Product = ({
   setClickEdit, 
   setClickAdd, 
   clickEdit,
-  setSingleProduct
+  setSingleProduct,
+  setProducts,
+  setHideTable,
+  hideTable
 }) => {
 
   const handleClickEdit = (product) => {
@@ -38,7 +41,24 @@ const Product = ({
   const handleClickAdd = () => {
     setClickAdd(true)
     setClickEdit(null)
+    setSingleProduct({
+      name: '',
+      color: '',
+      category: '',
+      price: '',
+    })
   }
+
+  const handleDeleteProduct = (product) => {
+    const deleteProduct = [...products]
+    const index = deleteProduct.findIndex((item) => item.id === product.id)
+
+    index !== -1 ? deleteProduct.splice(index, 1) : undefined
+    
+    setProducts(deleteProduct);   
+
+    deleteProduct.length === 0 ? setHideTable(true) : setHideTable(false);
+  } 
   
   return (
       <article>
@@ -47,8 +67,10 @@ const Product = ({
           <h2>Product List</h2>
           <button onClick={handleClickAdd}>Add</button>
         </div>
+        <h2 className={!hideTable ? 'hiden' : 'no-products'} >No Products</h2>
 
-        <table className='table'>
+
+        <table className={hideTable ? 'hiden' : 'table'}>
 
           <thead>
             <tr className='table-header'>
@@ -73,6 +95,7 @@ const Product = ({
                 price={product.price}
                 handleClickEdit={handleClickEdit}
                 isSelected={clickEdit === product.id ? true : false}
+                handleDeleteProduct={handleDeleteProduct}
                 />
               )
             })}

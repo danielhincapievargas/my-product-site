@@ -1,6 +1,12 @@
+import { products } from '../Main/Data';
 import './EditProductCard.scss';
 
-const EditProductCard = ({ clickEdit, singleProduct, setSingleProduct }) => {
+const EditProductCard = ({ clickEdit,
+  singleProduct,
+  setSingleProduct,
+  onUpdateProduct,
+  setClickEdit
+}) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -10,11 +16,28 @@ const EditProductCard = ({ clickEdit, singleProduct, setSingleProduct }) => {
     });
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    onUpdateProduct(singleProduct)
+    setSingleProduct({
+      name: '',
+      color: '',
+      category: '',
+      price: '',
+    })
+  }
+  
+  const handleClickCancel = () => {
+    setClickEdit(null)
+  }
+
+
+
   return (
     <>
     <div className={clickEdit ? 'edit-card' : 'hiden'}>
         <h2>Edit Product</h2>
-        <form className='edit-form'>
+        <form onSubmit={handleSubmit} className='edit-form'>
 
           <label htmlFor="product-name">PRODUCT NAME</label>
           <input onChange={handleChange} value={singleProduct.name}  name='product-name' id='product-name' type="text"/>
@@ -35,8 +58,8 @@ const EditProductCard = ({ clickEdit, singleProduct, setSingleProduct }) => {
           <input onChange={handleChange} value={singleProduct.price}  name="price" id="price" type="text"/> {/* cómo se pone como número? */}
 
           <div className='edit-buttons'>
-            <button className='edit-cancel'>Cancel</button>
-            <button className='edit-update'>Update</button>
+            <button onClick={handleClickCancel} className='edit-cancel'>Cancel</button>
+            <button type='submit' className='edit-update'>Update</button>
           </div>
 
         </form>

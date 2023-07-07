@@ -38,6 +38,11 @@ article {
         }
       }
   }
+  .no-products{
+    font-size: 24px;
+    text-align: center;
+    color: grey;
+  }
 
   .table {
     border: solid 2px $very-light-gray;
@@ -96,6 +101,9 @@ article {
         font-weight: bold;
         color: $primary-color;
       }
+    }
+    .hiden{
+      display: none;
     }
   }
 }
