@@ -9,7 +9,7 @@ const ProductList = ({id, name, color, category, price, handleClickEdit, isSelec
       <td className='product__name'>{name}</td>
       <td>{color}</td>
       <td>{category}</td>
-      <td>{price}</td>
+      <td className='product__price'>$ {price}</td>
       <td><span id={id} onClick={() => handleClickEdit(product)} className='product__edit'>Edit </span><span>|</span><span onClick={()=>handleDeleteProduct(product)} className='product__delete' disabled={loading}> Delete</span></td>
     </tr>
   )

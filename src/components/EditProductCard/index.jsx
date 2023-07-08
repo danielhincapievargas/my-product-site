@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { products } from '../Main/Data';
 import './EditProductCard.scss';
+
 
 const EditProductCard = ({ clickEdit,
   singleProduct,
@@ -14,9 +14,14 @@ const EditProductCard = ({ clickEdit,
   const handleChange = (event) => {
     const { name, value } = event.target;
     setSingleProduct({ 
-      ...singleProduct, // spread operator
+      ...singleProduct, 
       [name]: value 
     });
+  }
+
+  const newProduct = {
+    ...singleProduct,
+    price: Math.round(singleProduct.price * 100) / 100
   }
 
   const handleSubmit = async (event) => {
@@ -24,16 +29,17 @@ const EditProductCard = ({ clickEdit,
 
     const configFetch = {
       method: 'PUT',
-      body: JSON.stringify(singleProduct),
+      body: JSON.stringify(newProduct),
       headers:{
         'Content-Type': 'application/json'
       }
     }
     try{
       setLoading(true)
-      const response = await fetch(`http://localhost:8080/products/${singleProduct.id}`, configFetch)
+      const response = await fetch(`http://localhost:8080/products/${newProduct.id}`, configFetch)
       const product = await response.json();
       onUpdateProduct(product.data)
+
   }catch(error){
       setError(`Ups!! ocurrió algo. Error: ${error}`)
   }finally{
@@ -75,7 +81,12 @@ const EditProductCard = ({ clickEdit,
           </select>
           
           <label htmlFor="price">PRICE</label>
-          <input onChange={handleChange} value={singleProduct.price}  name="price" id="price" type="text"/> {/* cómo se pone como número? */}
+          <input onChange={handleChange}
+          value={singleProduct.price}  
+          name="price" id="price" 
+          type="number"
+          step='0.01'
+          />
 
           <div className='edit-buttons'>
             <button onClick={handleClickCancel} className='edit-cancel'>Cancel</button>

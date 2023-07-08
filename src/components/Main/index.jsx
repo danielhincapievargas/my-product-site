@@ -2,7 +2,6 @@ import AddProductCard from '../AddProductCard';
 import EditProductCard from '../EditProductCard';
 import Product from '../Product';
 import { useState, useEffect } from 'react';
-//import { products as ProductList } from '../Main/Data';
 
 
 const Main = () => {
@@ -27,13 +26,16 @@ const Main = () => {
         const response = await fetch('http://localhost:8080/products')
         const products = await response.json();
         setProducts(products.data)
-        } catch(error){
-          setErrorList(`Ups! ocurrió algo, inténtalo más tarde. Error ${error}`)
-        } finally{
-          setLoadingList(false)
+        products.data.length === 0 ? setHideTable(true) : setHideTable(false);
+      } catch(error){s
+        setErrorList(`Ups! ocurrió algo, inténtalo más tarde. Error ${error}`)
+      } finally{
+          setLoadingList(false);
+          console.log(singleProduct);
         }
     })()
   }, [])
+ 
 
   const handleAddProduct = (newProduct) => {
     setProducts([...products, newProduct]);

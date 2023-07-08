@@ -47,7 +47,6 @@ const Product = ({
       setLoading(true)
       const response = await fetch(`http://localhost:8080/products/${product.id}`, configFetch);
       const data = await response.json(); 
-      console.log(data);
     }catch(error){
       setError(`Ups!! ocurrió algo. Error: ${error}`)
     } finally {
@@ -73,7 +72,7 @@ const Product = ({
           <button onClick={handleClickAdd}>Add</button>
         </div>
 
-        <h2 className={!hideTable ? 'hiden' : 'no-products'} >No Products</h2>
+        <h2 className={!hideTable ? 'hiden' : 'no-products'} >Add Products</h2>
 
 
         <table className={hideTable ? 'hiden' : 'table'}>

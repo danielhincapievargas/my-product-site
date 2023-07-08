@@ -1,7 +1,7 @@
 @import '../../styles/abstract/variables.scss';
 
 .edit-card {
-  margin: 0 auto;
+  margin: 32px auto 32px auto;
   width: 90%;
   padding: 0 15px;
   @media (min-width: 769px) {
@@ -31,6 +31,9 @@
         font-size: 14px;
         padding-top: 28px;
       }
+      @media (min-width: 426px) and (max-width: 768px){
+        font-size: 12px;
+      }
     }
     input, select {
       border: solid 1px $light-gray;
@@ -45,12 +48,17 @@
         color: $light-gray;
       }
     }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
     .edit-buttons {
       align-self: self-end;
       button {
         margin-top: 12px;
         margin-right: 12px;
-        width: 50px;
+        width: 48px;
         padding: 8px 12px 8px 12px;
         font-weight: bold;
         font-size: 14px;

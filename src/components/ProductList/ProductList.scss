@@ -5,16 +5,22 @@
     border-top: 2px solid $very-light-gray;
     padding: 10px 8px 10px 8px;
     text-align: center;
-    font-size: 10px;
+    font-size: 11px;
     color: $gray;
-    @media (min-width: 769px){
+    @media (min-width: 426px) and (max-width: 768px){
       font-size: 14px;
+    }
+    @media (min-width: 769px){
+      font-size: 16px;
     }
   }
   .product__name {
     padding-left: 20px;
     text-align: left;
     font-weight: bold;
+  }
+  .product__price {
+    white-space: nowrap;
   }
   .product__edit, .product__delete {
     cursor: pointer;

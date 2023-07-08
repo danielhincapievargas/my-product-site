@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './AddProductCard.scss';
 
+
 const AddProductCard = ({
   clickAdd,
   setClickAdd,
@@ -12,6 +13,8 @@ const AddProductCard = ({
 
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState(false);
+
+console.log(singleProduct.price);
 
 
   const handleChange = (event) => {
@@ -28,6 +31,7 @@ const [error, setError] = useState(false);
     const newProduct = {
       ...singleProduct,
       id: singleProduct.id ? singleProduct.id : Date.now(),
+      price: Math.round(singleProduct.price * 100) / 100
     }
 
     const configFetch = {
@@ -45,6 +49,7 @@ const [error, setError] = useState(false);
     }catch(error){
         setError(`Ups!! ocurrió algo. Error: ${error}`)
     }finally{
+      setClickAdd(false)
       setLoading(false)
       setHideTable(false)
       setSingleProduct({
@@ -86,12 +91,22 @@ const [error, setError] = useState(false);
           </select>
           
           <label htmlFor="price">PRICE</label>
-          <input onChange={handleChange} placeholder='$999,99' name="price" id="price" type="text" required value={singleProduct.price}/>
+          <input
+            onChange={handleChange}
+            placeholder='999.99' 
+            name="price" 
+            id="price" 
+            type="number" 
+            step="0.01"
+            required 
+            value={singleProduct.price}
+            />
+
           <div className="add-buttons">
-            <button className='add-cancel' onClick={handleClickCancel}>Cancel</button>
+            <button className='cancel-button' onClick={handleClickCancel}>Cancel</button>
             <button
               type='submit' 
-              className='add-botton'
+              className='add-button'
               disabled={loading}
             >{loading ? 'Wait': 'Add'}</button>
           </div>
