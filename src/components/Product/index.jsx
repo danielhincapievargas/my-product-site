@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Product.scss';
 import ProductList from '../ProductList';
+import Loading from '../Loading';
 
 
 const Product = ({ 
@@ -64,7 +65,9 @@ const Product = ({
 
   return (
     <>
-    {loadingList ? 'Loading...' : errorList ? errorList : 
+    {loadingList ? <>
+    <Loading />
+    </> : errorList ? errorList : 
       <article>
 
         <div className='title'>
