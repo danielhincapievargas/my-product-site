@@ -1,14 +1,14 @@
 import AddProductCard from '../AddProductCard';
 import EditProductCard from '../EditProductCard';
 import Product from '../Product';
-import { useState } from 'react';
-import { products as ProductList } from '../Main/Data';
+import { useState, useEffect } from 'react';
+//import { products as ProductList } from '../Main/Data';
 
 
 const Main = () => {
 
   const[hideTable, setHideTable] = useState(false)
-  const[products, setProducts] = useState(ProductList);
+  const[products, setProducts] = useState([ ]);
   const[clickAdd, setClickAdd] = useState(false);
   const[clickEdit, setClickEdit] = useState(null);
   const[singleProduct, setSingleProduct] = useState({
@@ -18,13 +18,22 @@ const Main = () => {
         price: ''
 
   })
-  //const[itemClicked, setItemClicked] = useState(null);
-  
-  /* const handleClickAdd = () => {
-    
-    setClickAdd(true);
-    clickEdit ? setClickEdit(!setClickEdit) : undefined;
-  } */
+  const [loadingList, setLoadingList] = useState(true)
+  const [errorList, setErrorList] = useState(null)
+
+  useEffect(() => {
+    (async function fetchData(){
+      try {
+        const response = await fetch('http://localhost:8080/products')
+        const products = await response.json();
+        setProducts(products.data)
+        } catch(error){
+          setErrorList(`Ups! ocurrió algo, inténtalo más tarde. Error ${error}`)
+        } finally{
+          setLoadingList(false)
+        }
+    })()
+  }, [])
 
   const handleAddProduct = (newProduct) => {
     setProducts([...products, newProduct]);
@@ -46,8 +55,6 @@ const Main = () => {
     <>
       <Product
         products={products}
-        //handleClickAdd={handleClickAdd}
-        //clickAdd={clickAdd}
         clickEdit={clickEdit}
         setClickEdit={setClickEdit}
         setClickAdd={setClickAdd}
@@ -55,6 +62,9 @@ const Main = () => {
         setProducts={setProducts}
         hideTable={hideTable}
         setHideTable={setHideTable}
+        loadingList={loadingList}
+        errorList={errorList}
+        setErrorList={setErrorList}
       />
       <AddProductCard 
       onAddProduct={handleAddProduct}

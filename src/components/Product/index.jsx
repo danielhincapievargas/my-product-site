@@ -10,33 +10,16 @@ const Product = ({
   setSingleProduct,
   setProducts,
   setHideTable,
-  hideTable
+  hideTable,
+  loadingList,
+  errorList
 }) => {
 
   const handleClickEdit = (product) => {
       setClickEdit(product.id);
-      //console.log(clickEdit);
       setSingleProduct(product);
       setClickAdd(false)
-      
-
-    /* if(clickEdit === product.id) {
-      setClickEdit(product.id)
-      setSingleProduct(product)
-    } else {
-      setClickEdit(null)
-      setSingleProduct({
-        name: '',
-        color: '',
-        categoty: '',
-        price: ''
-      })
-    } */
-
-
-    //clickAdd ? setClickAdd(!clickAdd) : undefined;
   }
-  //console.log(clickEdit);
 
   const handleClickAdd = () => {
     setClickAdd(true)
@@ -59,14 +42,17 @@ const Product = ({
 
     deleteProduct.length === 0 ? setHideTable(true) : setHideTable(false);
   } 
-  
+
   return (
+    <>
+    {loadingList ? 'Loading...' : errorList ? errorList : 
       <article>
 
         <div className='title'>
           <h2>Product List</h2>
           <button onClick={handleClickAdd}>Add</button>
         </div>
+
         <h2 className={!hideTable ? 'hiden' : 'no-products'} >No Products</h2>
 
 
@@ -81,8 +67,8 @@ const Product = ({
               <th className='edit'>EDIT</th>
             </tr>
           </thead>
-
-          <tbody>
+              
+          <tbody>    
             {products.map((product) => {
               return (
                 <ProductList
@@ -97,13 +83,15 @@ const Product = ({
                 isSelected={clickEdit === product.id ? true : false}
                 handleDeleteProduct={handleDeleteProduct}
                 />
-              )
-            })}
+              )}
+            )}
+            
           </tbody>
-          
         </table>
 
       </article>
+      }
+      </>
   )
 }
 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './AddProductCard.scss';
 
 const AddProductCard = ({
@@ -9,6 +10,10 @@ const AddProductCard = ({
   setHideTable
 }) => {
 
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(false);
+
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setSingleProduct({ 
@@ -17,16 +22,37 @@ const AddProductCard = ({
     }); 
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
-    setHideTable(false)
-    
     const newProduct = {
       ...singleProduct,
       id: singleProduct.id ? singleProduct.id : Date.now(),
     }
-    onAddProduct(newProduct)
+
+  
+
+    const configFetch = {
+      method: 'POST',
+      body: JSON.stringify(newProduct),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }
+    try{
+        setLoading(true)
+        const response = await fetch('http://localhost:8080/products', configFetch)
+        const product = await response.json();
+        console.log(product);
+        onAddProduct(product.data)
+    }catch(error){
+        setError(`Ups!! ocurrió algo. Error: ${error}`)
+    }finally{
+      setLoading(false)
+    }
+
+    setHideTable(false)
+    
 
     setSingleProduct({
       name: '',
@@ -66,7 +92,11 @@ const AddProductCard = ({
           <input onChange={handleChange} placeholder='$999,99' name="price" id="price" type="text" required value={singleProduct.price}/>
           <div className="add-buttons">
             <button className='add-cancel' onClick={handleClickCancel}>Cancel</button>
-            <button type='submit' className='add-botton'>Add</button>
+            <button
+              type='submit' 
+              className='add-botton'
+              disabled={loading}
+            >{loading ? 'Wait': 'Add'}</button>
           </div>
         </form>
       </div>
