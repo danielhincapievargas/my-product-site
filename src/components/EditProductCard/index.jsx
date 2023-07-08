@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { products } from '../Main/Data';
 import './EditProductCard.scss';
 
@@ -7,6 +8,8 @@ const EditProductCard = ({ clickEdit,
   onUpdateProduct,
   setClickEdit
 }) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -16,15 +19,32 @@ const EditProductCard = ({ clickEdit,
     });
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    onUpdateProduct(singleProduct)
+
+    const configFetch = {
+      method: 'PUT',
+      body: JSON.stringify(singleProduct),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }
+    try{
+      setLoading(true)
+      const response = await fetch(`http://localhost:8080/products/${singleProduct.id}`, configFetch)
+      const product = await response.json();
+      onUpdateProduct(product.data)
+  }catch(error){
+      setError(`Ups!! ocurrió algo. Error: ${error}`)
+  }finally{
+    setLoading(false)
     setSingleProduct({
       name: '',
       color: '',
       category: '',
       price: '',
-    })
+      })
+    }
   }
   
   const handleClickCancel = () => {
@@ -39,8 +59,8 @@ const EditProductCard = ({ clickEdit,
         <h2>Edit Product</h2>
         <form onSubmit={handleSubmit} className='edit-form'>
 
-          <label htmlFor="product-name">PRODUCT NAME</label>
-          <input onChange={handleChange} value={singleProduct.name}  name='product-name' id='product-name' type="text"/>
+          <label htmlFor="name">PRODUCT NAME</label>
+          <input onChange={handleChange} value={singleProduct.name}  name='name' id='name' type="text"/>
 
           <label htmlFor="color">COLOR</label>
           <input onChange={handleChange} value={singleProduct.color} name='color' id='color' type="text"/>
@@ -59,7 +79,11 @@ const EditProductCard = ({ clickEdit,
 
           <div className='edit-buttons'>
             <button onClick={handleClickCancel} className='edit-cancel'>Cancel</button>
-            <button type='submit' className='edit-update'>Update</button>
+            <button 
+            type='submit' 
+            className='edit-update'
+            disabled={loading}
+            >{loading ? 'Wait': 'Update'}</button>
           </div>
 
         </form>

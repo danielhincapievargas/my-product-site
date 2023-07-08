@@ -1,6 +1,6 @@
 import './ProductList.scss';
 
-const ProductList = ({id, name, color, category, price, handleClickEdit, isSelected, product, handleDeleteProduct}) => {
+const ProductList = ({id, name, color, category, price, handleClickEdit, isSelected, product, handleDeleteProduct, loading}) => {
 
   const classProduct = isSelected ? 'product--selected' : '';
 
@@ -10,7 +10,7 @@ const ProductList = ({id, name, color, category, price, handleClickEdit, isSelec
       <td>{color}</td>
       <td>{category}</td>
       <td>{price}</td>
-      <td><span id={id} onClick={() => handleClickEdit(product)} className='product__edit'>Edit </span><span>|</span><span onClick={()=>handleDeleteProduct(product)} className='product__delete'> Delete</span></td>
+      <td><span id={id} onClick={() => handleClickEdit(product)} className='product__edit'>Edit </span><span>|</span><span onClick={()=>handleDeleteProduct(product)} className='product__delete' disabled={loading}> Delete</span></td>
     </tr>
   )
 }

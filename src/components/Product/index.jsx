@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Product.scss';
 import ProductList from '../ProductList';
 
@@ -14,6 +15,9 @@ const Product = ({
   loadingList,
   errorList
 }) => {
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false); 
 
   const handleClickEdit = (product) => {
       setClickEdit(product.id);
@@ -32,15 +36,31 @@ const Product = ({
     })
   }
 
-  const handleDeleteProduct = (product) => {
-    const deleteProduct = [...products]
-    const index = deleteProduct.findIndex((item) => item.id === product.id)
+  const handleDeleteProduct = async (product) => {
+    const configFetch = {
+      method: 'DELETE',
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }
+    try{
+      setLoading(true)
+      const response = await fetch(`http://localhost:8080/products/${product.id}`, configFetch);
+      const data = await response.json(); 
+      console.log(data);
+    }catch(error){
+      setError(`Ups!! ocurrió algo. Error: ${error}`)
+    } finally {
+      const deleteProduct = [...products]
+      const index = deleteProduct.findIndex((item) => item.id === product.id)
+      index !== -1 ? deleteProduct.splice(index, 1) : undefined
+      
+      setProducts(deleteProduct);   
+  
+      deleteProduct.length === 0 ? setHideTable(true) : setHideTable(false);
+    }
 
-    index !== -1 ? deleteProduct.splice(index, 1) : undefined
-    
-    setProducts(deleteProduct);   
 
-    deleteProduct.length === 0 ? setHideTable(true) : setHideTable(false);
   } 
 
   return (
@@ -82,6 +102,7 @@ const Product = ({
                 handleClickEdit={handleClickEdit}
                 isSelected={clickEdit === product.id ? true : false}
                 handleDeleteProduct={handleDeleteProduct}
+                loading={loading}
                 />
               )}
             )}

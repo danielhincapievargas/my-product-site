@@ -30,8 +30,6 @@ const [error, setError] = useState(false);
       id: singleProduct.id ? singleProduct.id : Date.now(),
     }
 
-  
-
     const configFetch = {
       method: 'POST',
       body: JSON.stringify(newProduct),
@@ -43,23 +41,22 @@ const [error, setError] = useState(false);
         setLoading(true)
         const response = await fetch('http://localhost:8080/products', configFetch)
         const product = await response.json();
-        console.log(product);
         onAddProduct(product.data)
     }catch(error){
         setError(`Ups!! ocurrió algo. Error: ${error}`)
     }finally{
       setLoading(false)
+      setHideTable(false)
+      setSingleProduct({
+        name: '',
+        color: '',
+        category: '',
+        price: '',
+      })
     }
-
-    setHideTable(false)
+    
     
 
-    setSingleProduct({
-      name: '',
-      color: '',
-      category: '',
-      price: '',
-    })
   }
 
   const handleClickCancel = () => {
