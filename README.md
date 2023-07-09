@@ -1,8 +1,8 @@
 # Título del Proyecto
 
-_Acá va un párrafo que describa lo que es el proyecto_
+_Aplicacion web que me permite organizar una lista de productos realizando operaciones (CRUD)_
 
-## Comenzando 🚀
+## Getting 🚀
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
@@ -16,33 +16,31 @@ _Acá va un párrafo que describa lo que es el proyecto_
 
 ## Overview
 
-En este proyecto desarrollado por dos makers de bootcamp Fullstack Top de Make It Real, tendra un desarrollo de una aplicación web que permita realizar las operaciones básicas del CRUD (Crear, Leer, Actualizar y Eliminar) usando React y Express. La aplicación almacenará los datos en memoria en el lado del backend y tendrá una API REST para las operaciones CRUD.
+The application will have a simple and intuitive user interface that allows users to interact with the application and perform CRUD operations without difficulty. Additionally, validations will be implemented to ensure that the entered data is correct, and clear error messages will be displayed in case of errors.
 
-La aplicación tendrá una interfaz de usuario sencilla e intuitiva que permita a los usuarios interactuar con la aplicación y realizar las operaciones CRUD sin dificultad. Además, se implementarán validaciones para asegurarse de que los datos ingresados sean correctos y se mostrarán mensajes de error claros en caso de que se produzcan errores.
+React will be used to build the user interface, and Express will be used to create the REST API on the backend. Data will be stored in memory on the backend side, and CRUD operations will be used to interact with them.
 
-Se utilizará React para construir la interfaz de usuario y Express para crear la API REST en el backend. Los datos se almacenarán en memoria en el lado del backend y se utilizarán las operaciones CRUD para interactuar con ellos.
-
-El proyecto se dividirá en varias etapas, comenzando por la planificación y diseño de la aplicación, seguido de la implementación de la interfaz de usuario y la API REST, y finalmente la implementación de las operaciones CRUD y el despliegue en producción.
+The project will be divided into several stages, starting with the planning and design of the application, followed by the implementation of the user interface and the REST API, and finally the implementation of CRUD operations and deployment to production.
 
 ### The challenge
 
 Users should be able to:
 
-- Ver el diseño óptimo para los componentes según el tamaño de pantalla de su dispositivo
-- Ingresar un nuevo producto
-- Ver el producto en lista y poder tanto editar como eliminar
+- View the optimal design for components based on the screen size of their device.
+- Add a new product.
+- View the product in a list and be able to edit or delete it.
 
 ### Screenshot
-- Vista de escritorio con la lista vacia
+- Desktop view with an empty list
 
 ![image](https://github.com/danielhincapievargas/my-product-site-backend/assets/126527883/33c11cbf-5d64-4511-9464-c96d3deb0c5c)
 
-- Vista de escritorio con productos agregados
+- Desktop view with added products
 
 ![image](https://github.com/danielhincapievargas/my-product-site-backend/assets/126527883/8341e5f0-33c2-4c61-aee9-f603a6195771)
 
 
-- Vista mobil
+- Mobile view
 
 ![image](https://github.com/danielhincapievargas/my-product-site-backend/assets/126527883/bdaf8893-2446-49ef-93f1-d5b0a3749db0)
 
@@ -65,4 +63,4 @@ Users should be able to:
 
 ## Acknowledgments
 
-Gracias a Make It Real, cada dia aprendemos cosas nuevas como en este proyecto el trabajar con React
+Thanks to Make It Real, we learn new things every day, such as working with React in this project.
