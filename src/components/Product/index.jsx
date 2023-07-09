@@ -44,7 +44,8 @@ const Product = ({
     }
     try{
       setLoading(true)
-      const response = await fetch(`http://localhost:8080/products/${product.id}`, configFetch);
+      
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/products/${product.id}`, configFetch);
       const data = await response.json(); 
     }catch(error){
       setError(`Ups!! ocurrió algo. Error: ${error}`)

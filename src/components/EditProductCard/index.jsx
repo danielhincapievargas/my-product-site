@@ -35,7 +35,7 @@ const EditProductCard = ({ clickEdit,
     }
     try{
       setLoading(true)
-      const response = await fetch(`http://localhost:8080/products/${newProduct.id}`, configFetch)
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/products/${newProduct.id}`, configFetch)
       const product = await response.json();
       onUpdateProduct(product.data)
 

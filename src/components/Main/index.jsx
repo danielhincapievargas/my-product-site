@@ -24,7 +24,7 @@ const Main = () => {
   useEffect(() => {
     (async function fetchData(){
       try {
-        const response = await fetch('http://localhost:8080/products')
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/products`)
         const products = await response.json();
         setProducts(products.data)
         products.data.length === 0 ? setHideTable(true) : setHideTable(false);
@@ -32,7 +32,6 @@ const Main = () => {
         setErrorList(`Oops! Something went wrong, please try again later. Error ${error}`)
       } finally{
           setLoadingList(false);
-          console.log(singleProduct);
         }
     })()
   }, [])
