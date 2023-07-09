@@ -1,6 +1,6 @@
 # Título del Proyecto
 
-_Aplicacion web que me permite organizar una lista de productos realizando operaciones (CRUD)_
+_Web application that allows me to organize a product list by performing operations (CRUD)_
 
 ## Getting 🚀
 
