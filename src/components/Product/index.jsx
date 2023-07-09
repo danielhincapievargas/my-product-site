@@ -45,7 +45,6 @@ const Product = ({
     }
     try{
       setLoading(true)
-      
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/products/${product.id}`, configFetch);
       const data = await response.json(); 
     }catch(error){
@@ -55,7 +54,9 @@ const Product = ({
       const index = deleteProduct.findIndex((item) => item.id === product.id)
       index !== -1 ? deleteProduct.splice(index, 1) : undefined
       
-      setProducts(deleteProduct);   
+      setProducts(deleteProduct);
+      setClickEdit(null)
+      setClickAdd(false)
   
       deleteProduct.length === 0 ? setHideTable(true) : setHideTable(false);
     }
