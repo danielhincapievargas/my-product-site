@@ -63,4 +63,4 @@ Users should be able to:
 
 ## Acknowledgments
 
-Thanks to Make It Real, we learn new things every day, such as working with React in this project.
+Thanks to Make It Real, we learn new things every day, such as working with React whit express in this project.
