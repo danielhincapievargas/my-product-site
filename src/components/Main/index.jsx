@@ -73,6 +73,7 @@ const Main = () => {
           setClickEdit={setClickEdit}
           setClickAdd={setClickAdd}
           setSingleProduct={setSingleProduct}
+          singleProduct={singleProduct}
           setProducts={setProducts}
           hideTable={hideTable}
           setHideTable={setHideTable}

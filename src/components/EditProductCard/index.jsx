@@ -52,7 +52,8 @@ const EditProductCard = ({ clickEdit,
     }
   }
   
-  const handleClickCancel = () => {
+  const handleClickCancel = (e) => {
+    e.preventDefault()
     setClickEdit(null)
   }
 

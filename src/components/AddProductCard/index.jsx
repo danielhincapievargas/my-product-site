@@ -57,7 +57,8 @@ const [error, setError] = useState(false);
     }
   }
 
-  const handleClickCancel = () => {
+  const handleClickCancel = (e) => {
+    e.preventDefault()
     setClickAdd(false)
   }
 

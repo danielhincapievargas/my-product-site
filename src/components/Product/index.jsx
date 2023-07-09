@@ -7,6 +7,7 @@ const Product = ({
   setClickEdit, 
   setClickAdd, 
   clickEdit,
+  singleProduct,
   setSingleProduct,
   setProducts,
   setHideTable,
@@ -22,7 +23,7 @@ const Product = ({
       setClickEdit(product.id);
       setSingleProduct(product);
       setClickAdd(false)
-  }
+    }
 
   const handleClickAdd = () => {
     setClickAdd(true)
