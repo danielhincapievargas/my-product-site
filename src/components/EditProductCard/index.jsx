@@ -63,13 +63,13 @@ const EditProductCard = ({ clickEdit,
         <form onSubmit={handleSubmit} className='edit-form'>
 
           <label htmlFor="name">PRODUCT NAME</label>
-          <input onChange={handleChange} value={singleProduct.name}  name='name' id='name' type="text"/>
+          <input onChange={handleChange} value={singleProduct.name}  name='name' id='name' type="text" required/>
 
           <label htmlFor="color">COLOR</label>
-          <input onChange={handleChange} value={singleProduct.color} name='color' id='color' type="text"/>
+          <input onChange={handleChange} value={singleProduct.color} name='color' id='color' type="text" required/>
 
           <label htmlFor="category">CATEGORY</label>
-          <select onChange={handleChange} value={singleProduct.category} name="category" id="category">
+          <select onChange={handleChange} value={singleProduct.category} name="category" id="category" required>
             <option value="Home">Home</option>
             <option value="Clothing">Clothing</option>
             <option value="Baby">Baby</option>
@@ -83,6 +83,7 @@ const EditProductCard = ({ clickEdit,
           name="price" id="price" 
           type="number"
           step='0.01'
+          required
           />
 
           <div className='edit-buttons'>
