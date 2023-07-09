@@ -22,7 +22,7 @@ React will be used to build the user interface, and Express will be used to crea
 
 The project will be divided into several stages, starting with the planning and design of the application, followed by the implementation of the user interface and the REST API, and finally the implementation of CRUD operations and deployment to production.
 
-Note: This application was developed using the pair programming methology
+Note: This application was developed using the pair programming methology, by the repository owner and their collaborator
 
 ### The challenge
 
