@@ -4,101 +4,70 @@ _Acá va un párrafo que describa lo que es el proyecto_
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-Mira **Deployment** para conocer como desplegar el proyecto.
 
-### Pre-requisitos 📋
+## Overview
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+En este proyecto desarrollado por dos makers de bootcamp Fullstack Top de Make It Real, tendra un desarrollo de una aplicación web que permita realizar las operaciones básicas del CRUD (Crear, Leer, Actualizar y Eliminar) usando React y Express. La aplicación almacenará los datos en memoria en el lado del backend y tendrá una API REST para las operaciones CRUD.
 
-```
-Da un ejemplo
-```
+La aplicación tendrá una interfaz de usuario sencilla e intuitiva que permita a los usuarios interactuar con la aplicación y realizar las operaciones CRUD sin dificultad. Además, se implementarán validaciones para asegurarse de que los datos ingresados sean correctos y se mostrarán mensajes de error claros en caso de que se produzcan errores.
 
-### Instalación 🔧
+Se utilizará React para construir la interfaz de usuario y Express para crear la API REST en el backend. Los datos se almacenarán en memoria en el lado del backend y se utilizarán las operaciones CRUD para interactuar con ellos.
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+El proyecto se dividirá en varias etapas, comenzando por la planificación y diseño de la aplicación, seguido de la implementación de la interfaz de usuario y la API REST, y finalmente la implementación de las operaciones CRUD y el despliegue en producción.
 
-_Dí cómo será ese paso_
+### The challenge
 
-```
-Da un ejemplo
-```
+Users should be able to:
 
-_Y repite_
+- Ver el diseño óptimo para los componentes según el tamaño de pantalla de su dispositivo
+- Ingresar un nuevo producto
+- Ver el producto en lista y poder tanto editar como eliminar
 
-```
-hasta finalizar
-```
+### Screenshot
+- Vista de escritorio con la lista vacia
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
+![image](https://github.com/danielhincapievargas/my-product-site-backend/assets/126527883/33c11cbf-5d64-4511-9464-c96d3deb0c5c)
 
-## Ejecutando las pruebas ⚙️
+- Vista de escritorio con productos agregados
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
+![image](https://github.com/danielhincapievargas/my-product-site-backend/assets/126527883/8341e5f0-33c2-4c61-aee9-f603a6195771)
 
-### Analice las pruebas end-to-end 🔩
 
-_Explica que verifican estas pruebas y por qué_
+- Vista mobil
 
-```
-Da un ejemplo
-```
+![image](https://github.com/danielhincapievargas/my-product-site-backend/assets/126527883/bdaf8893-2446-49ef-93f1-d5b0a3749db0)
 
-### Y las pruebas de estilo de codificación ⌨️
 
-_Explica que verifican estas pruebas y por qué_
+## My process
 
-```
-Da un ejemplo
-```
+### Built with
 
-## Despliegue 📦
+- React con Vite
+- CSS custom properties
+- Mobile-first workflow
+- Express
 
-_Agrega notas adicionales sobre como hacer deploy_
+### What I learned
 
-## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
+If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-- [Maven](https://maven.apache.org/) - Manejador de dependencias
-- [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
+### Continued development
 
-## Contribuyendo 🖇️
+## Authors
 
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
+- Website - https://github.com/r0odr1
+- https://github.com/danielhincapievargas
 
-## Wiki 📖
+## Acknowledgments
 
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
-
-## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-- **Andrés Villanueva** - _Trabajo Inicial_ - [villanuevand](https://github.com/villanuevand)
-- **Fulanito Detal** - _Documentación_ - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto.
-
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-- Comenta a otros sobre este proyecto 📢
-- Invita una cerveza 🍺 o un café ☕ a alguien del equipo.
-- Da las gracias públicamente 🤓.
-- Dona con cripto a esta dirección: `0xf253fc233333078436d111175e5a76a649890000`
-- etc.
-
----
-
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+Gracias a Make It Real, cada dia aprendemos cosas nuevas como en este proyecto el trabajar con React
