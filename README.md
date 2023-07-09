@@ -16,7 +16,7 @@ _Web application that allows me to organize a product list by performing operati
 
 ## Overview
 
-The application will have a simple and intuitive user interface that allows users to interact with the application and perform CRUD operations without difficulty. Additionally, validations will be implemented to ensure that the entered data is correct, and clear error messages will be displayed in case of errors.
+The application (Pair Programming) will have a simple and intuitive user interface that allows users to interact with the application and perform CRUD operations without difficulty. Additionally, validations will be implemented to ensure that the entered data is correct, and clear error messages will be displayed in case of errors.
 
 React will be used to build the user interface, and Express will be used to create the REST API on the backend. Data will be stored in memory on the backend side, and CRUD operations will be used to interact with them.
 
