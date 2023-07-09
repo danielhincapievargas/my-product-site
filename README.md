@@ -51,12 +51,10 @@ Users should be able to:
 
 ### Built with
 
-- React con Vite
+- React whit Vite
 - CSS custom properties
 - Mobile-first workflow
 - Express
-
-### Continued development
 
 ## Authors
 
