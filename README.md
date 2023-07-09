@@ -56,11 +56,6 @@ Users should be able to:
 - Mobile-first workflow
 - Express
 
-### What I learned
-
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
 ### Continued development
 
 ## Authors
