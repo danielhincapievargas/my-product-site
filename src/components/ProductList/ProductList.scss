@@ -23,8 +23,13 @@
     white-space: nowrap;
   }
   .product__edit, .product__delete {
+    margin-right: 5px;
     cursor: pointer;
+    font-size: 13px;
     font-weight: bold;
     color: $primary-color;
+    @media (min-width: 769px){
+      font-size: 16px;
+    }
   }
 }
