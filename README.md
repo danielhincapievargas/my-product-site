@@ -61,7 +61,7 @@ Users should be able to:
 ## Authors
 
 - Website - https://github.com/r0odr1
-- https://github.com/danielhincapievargas
+- Website - https://github.com/danielhincapievargas
 
 ## Acknowledgments
 
