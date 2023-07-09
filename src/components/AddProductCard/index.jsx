@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './AddProductCard.scss';
 
-
 const AddProductCard = ({
   clickAdd,
   setClickAdd,
@@ -13,9 +12,6 @@ const AddProductCard = ({
 
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState(false);
-
-console.log(singleProduct.price);
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -59,9 +55,6 @@ console.log(singleProduct.price);
         price: '',
       })
     }
-    
-    
-
   }
 
   const handleClickCancel = () => {

@@ -2,9 +2,8 @@ import './Loading.scss'
 
 const Loading = () => {
   return(
-
     <>
-      <div  class="spinner">
+      <div  className="spinner">
         <div></div>
         <div></div>
         <div></div>

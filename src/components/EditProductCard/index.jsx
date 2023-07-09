@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './EditProductCard.scss';
 
-
 const EditProductCard = ({ clickEdit,
   singleProduct,
   setSingleProduct,
@@ -56,8 +55,6 @@ const EditProductCard = ({ clickEdit,
   const handleClickCancel = () => {
     setClickEdit(null)
   }
-
-
 
   return (
     <>

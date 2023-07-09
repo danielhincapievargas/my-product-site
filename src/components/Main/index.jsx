@@ -1,8 +1,9 @@
+import './Main.scss'
 import AddProductCard from '../AddProductCard';
 import EditProductCard from '../EditProductCard';
 import Product from '../Product';
+import Loading from '../Loading';
 import { useState, useEffect } from 'react';
-
 
 const Main = () => {
 
@@ -27,8 +28,8 @@ const Main = () => {
         const products = await response.json();
         setProducts(products.data)
         products.data.length === 0 ? setHideTable(true) : setHideTable(false);
-      } catch(error){s
-        setErrorList(`Ups! ocurrió algo, inténtalo más tarde. Error ${error}`)
+      } catch(error){
+        setErrorList(`Oops! Something went wrong, please try again later. Error ${error}`)
       } finally{
           setLoadingList(false);
           console.log(singleProduct);
@@ -36,7 +37,6 @@ const Main = () => {
     })()
   }, [])
  
-
   const handleAddProduct = (newProduct) => {
     setProducts([...products, newProduct]);
   }
@@ -55,34 +55,49 @@ const Main = () => {
   
   return (
     <>
-      <Product
-        products={products}
-        clickEdit={clickEdit}
-        setClickEdit={setClickEdit}
+    {loadingList ? 
+    <>
+    <Loading />
+    </> 
+    : errorList ? 
+    <>
+      <div className='error-message'>
+      <img src="/error.png" alt="Error Image" />
+      <div>{errorList}</div>
+      </div>
+    </>
+    : 
+      <>
+        <Product
+          products={products}
+          clickEdit={clickEdit}
+          setClickEdit={setClickEdit}
+          setClickAdd={setClickAdd}
+          setSingleProduct={setSingleProduct}
+          setProducts={setProducts}
+          hideTable={hideTable}
+          setHideTable={setHideTable}
+          loadingList={loadingList}
+          errorList={errorList}
+          setErrorList={setErrorList}
+        />
+        <AddProductCard 
+        onAddProduct={handleAddProduct}
+        clickAdd={clickAdd}
         setClickAdd={setClickAdd}
+        singleProduct={singleProduct}
         setSingleProduct={setSingleProduct}
-        setProducts={setProducts}
-        hideTable={hideTable}
         setHideTable={setHideTable}
-        loadingList={loadingList}
-        errorList={errorList}
-        setErrorList={setErrorList}
-      />
-      <AddProductCard 
-      onAddProduct={handleAddProduct}
-      clickAdd={clickAdd}
-      setClickAdd={setClickAdd}
-      singleProduct={singleProduct}
-      setSingleProduct={setSingleProduct}
-      setHideTable={setHideTable}
-      />
-      <EditProductCard 
-      clickEdit={clickEdit}
-      singleProduct={singleProduct}
-      setSingleProduct={setSingleProduct}
-      onUpdateProduct={handleUpdateProduct}
-      setClickEdit={setClickEdit}
-      />
+        />
+        <EditProductCard 
+        clickEdit={clickEdit}
+        singleProduct={singleProduct}
+        setSingleProduct={setSingleProduct}
+        onUpdateProduct={handleUpdateProduct}
+        setClickEdit={setClickEdit}
+        />
+      </>
+      }
     </>
   )
 }

@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import './Product.scss';
 import ProductList from '../ProductList';
-import Loading from '../Loading';
-
 
 const Product = ({ 
   products = [],
@@ -65,9 +63,15 @@ const Product = ({
 
   return (
     <>
-    {loadingList ? <>
+    {loadingList ? 
+    <>
     <Loading />
-    </> : errorList ? errorList : 
+    </> 
+    : errorList ? 
+    <>
+    <ErrorMessage errorList={errorList} />
+    </> 
+    : 
       <article>
 
         <div className='title'>
@@ -110,8 +114,9 @@ const Product = ({
             )}
             
           </tbody>
-        </table>
 
+        </table>
+        
       </article>
       }
       </>
